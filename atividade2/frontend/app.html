@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcrição de Áudio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-2xl">
+        <h1 class="text-3xl font-bold mb-4 text-center">Transcrição de Áudio</h1>
+        <p class="text-sm text-gray-400 mb-6 text-center">
+            Selecione um arquivo de áudio para transcrevê-lo.
+        </p>
+
+        <!-- Seção de Upload de Arquivo -->
+        <div class="mb-6">
+            <label for="audioFile" class="block text-sm font-medium text-gray-300 mb-2">Selecione o arquivo de áudio:</label>
+            <input type="file" id="audioFile" accept="audio/*" class="w-full text-sm text-gray-400
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-blue-500 file:text-white
+                hover:file:bg-blue-600 transition duration-300
+                cursor-pointer">
+        </div>
+
+        <!-- Botão de Transcrição -->
+        <button id="transcribeButton" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+            Transcrever Áudio
+        </button>
+
+        <!-- Indicador de Carregamento -->
+        <div id="loadingIndicator" class="hidden mt-4 text-center">
+            <svg class="animate-spin h-8 w-8 text-white mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-2 text-sm text-gray-400">Transcrevendo... aguarde alguns segundos.</p>
+        </div>
+
+        <!-- Área de Resultado da Transcrição -->
+        <div id="resultContainer" class="mt-6 hidden">
+            <h2 class="text-xl font-bold mb-2">Texto Transcrito:</h2>
+            <textarea id="transcriptionText" class="w-full h-64 bg-gray-700 text-white p-4 rounded-lg resize-y leading-relaxed focus:outline-none focus:ring-2 focus:ring-blue-400" readonly></textarea>
+        </div>
+
+        <!-- Área de Mensagens de Erro/Sucesso -->
+        <div id="messageBox" class="mt-4 hidden p-3 rounded-lg text-sm text-center"></div>
+    </div>
+</body>
+</html>

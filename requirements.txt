@@ -1,0 +1,4 @@
+Flask
+groq
+Flask-Cors
+python-dotenv
