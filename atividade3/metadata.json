@@ -1,0 +1,5 @@
+{
+  "name": "AI Image Generator",
+  "description": "A web application that generates images from text prompts using the Gemini API, translating a Python/Tkinter concept into a modern React/Tailwind UI.",
+  "requestFramePermissions": []
+}
